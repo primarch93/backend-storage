@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios");
 
 const app = express();
 app.use(express.json());
@@ -12,10 +13,10 @@ const r = await axios.put(
     "https://api.chatengine.io/users/",
     {username: username, secret: username, first_name: username},
     {headers: {"private-key": "d5192a98-c265-4c42-a9c5-50c27a1571a2"}}
-)
-return res.status(r.status).json(r.data)
+);
+return res.status(r.status).json(r.data);
   } catch (e) {
-    return res.status(e.response.status).json(e.response.data)
+    return res.status(e.response.status).json(e.response.data);
   }
 });
 
